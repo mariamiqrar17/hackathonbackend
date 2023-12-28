@@ -12,6 +12,11 @@ app.use(cors());
 app.use(express.json()); 
 app.use(bodyParser.json());
 
+app.get("/,", (req, res) => {
+  res.send({msg: "success"})
+})
+app.use('/api/todos', todoRoutes);
+app.use('/api/users', userRoutes);
 
 mongoose.connect(`${process.env.MONGO_DB_URL}`, {
   useNewUrlParser: true,
@@ -26,9 +31,6 @@ mongoose.connect(`${process.env.MONGO_DB_URL}`, {
   .catch((error) => {
     console.error('Failed to connect to MongoDB', error);
   });
-
-app.use('/api/todos', todoRoutes);
-app.use('/api/users', userRoutes);
 
 // Start server
 app.listen(port, () => {
