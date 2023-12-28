@@ -18,7 +18,7 @@ app.get("/,", (req, res) => {
 app.use('/api/todos', todoRoutes);
 app.use('/api/users', userRoutes);
 
-mongoose.connect(`${process.env.MONGO_DB_URL}`, {
+mongoose.connect("mongodb+srv://mariam123:6YKW6NzKdIDhZ2js@todoapp.ev0mwvc.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   writeConcern: {
